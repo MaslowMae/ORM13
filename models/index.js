@@ -5,6 +5,7 @@ const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 const sequelize = require('../config/connection');
 
+
 // Products belongsTo Category
 // Categories have many Products
 // Products belongToMany Tags (through ProductTag)
