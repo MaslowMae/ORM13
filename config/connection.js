@@ -1,5 +1,5 @@
 const db = require('mysql');
-const Sequelize = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 
 require('dotenv').config();
@@ -23,4 +23,4 @@ if (process.env.JAWSDB_URL) {
 
 module.exports = sequelize;
 
-//from Student activity 14.24
+//from Student activity 14.24- bmm
