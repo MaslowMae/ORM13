@@ -1,7 +1,7 @@
 const path = require('path');
-const db = require('./config/connection');
+const sequelize = require('./config/connection.js');
 const express = require('express');
-const sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const routes = require('./routes');
 
 

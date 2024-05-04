@@ -6,14 +6,16 @@ const tagData = require('./tag-seeds.json');
 const productData = require('./product-seeds.json');
 const categoryData = require('./category-seeds.json');
 
+
+
 const seedDatabase = async () => {
   await Sequelize.sync({ force: true });
 
-  const categories = await Category.bulkCreate(categoryData);
+  const category = await Category.bulkCreate(categoryData);
+  const tag = await Tag.bulkCreate(tagData);
+  const product = await Product.bulkCreate(productData);
 
-  const tags = await Tag.bulkCreate(tagData);
-
-  const products = await Product.bulkCreate(productData);
+  console.log(`${products.length} products seeded.`);
 
   for (const product of products) {
     const randomTagIds = tagData
@@ -27,6 +29,8 @@ const seedDatabase = async () => {
       }))
     );
   }
+
+  console.log('Database seeded!');
 
   process.exit(0);
 }

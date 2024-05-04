@@ -5,6 +5,15 @@ const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 const sequelize = require('../config/connection');
 
+async function syncDatabase(){
+  try{
+  await sequelize.sync({ force: true });
+  console.log('Database synced!');
+} catch (error) {
+  console.log('error synching database',error);
+}
+}
+syncDatabase();
 
 // Products belongsTo Category
 // Categories have many Products
