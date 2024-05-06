@@ -7,13 +7,13 @@ const sequelize = require('../config/connection');
 
 async function syncDatabase(){
   try{
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: true, alter:true });
   console.log('Database synced!');
 } catch (error) {
-  console.log('error synching database',error);
+  console.log('error syncing database',error);
 }
 }
-syncDatabase();
+// syncDatabase();
 
 // Products belongsTo Category
 // Categories have many Products
@@ -29,11 +29,11 @@ Category.hasMany(Product, {
 });
 Tag.belongsToMany(Product, {
   through: ProductTag,
-  foreignKey: 'product_id',
+  foreignKey: 'tag_id',
 });
 Product.belongsToMany(Tag, {
   through: ProductTag,
-  foreignKey: 'tag_id',
+  foreignKey: 'product_id',
 });
 
 module.exports = {
