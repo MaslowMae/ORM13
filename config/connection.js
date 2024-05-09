@@ -1,5 +1,4 @@
-// const db = require('mysql');
-const {Sequelize} = require('sequelize');
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
@@ -8,10 +7,25 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: 'localhost',
-    dialect: 'mysql',
+    dialect: "mysql", 
     port: 3306
   }
 );
+
+// // Create the database if it doesn't exist
+// sequelize.query(" CREATE DATABASE IF NOT EXISTS ecommerce_db;")
+//   .then(() => {
+//     console.log("Database created successfully");
+//     // Close the Sequelize connection after query execution
+//     sequelize.close();
+//   })
+//   .catch(err => {
+//     console.error("Error executing SQL commands:", err);
+//     // Close the Sequelize connection in case of error
+//     sequelize.close();
+//   });
+
+
 
 module.exports = sequelize;
 
